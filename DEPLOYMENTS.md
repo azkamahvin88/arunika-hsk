@@ -6,9 +6,13 @@
 
 - Project agent key (fresh keypair, created 23 Nov 2026, file mode 600,
   NOT in this repo): `0xEAA2eA592514988305739c0bC6F2c56834615133`
-- Faucet https://hsk.xyz/faucet gives 1 tHSK per address per 24h, but it
-  requires a Google reCAPTCHA + a browser click — it cannot be claimed from
-  this VM (no live-browser/captcha path available to the builder).
+- On-chain balance of the agent address (checked 23 Nov 2026 ~20:05 WIB):
+  `0x0` — unfunded, cannot pay gas.
+- Faucet https://hsk.xyz/faucet (redirects to https://hskchain.net/faucet)
+  gives 1 tHSK per address per 24h, but it requires a Google reCAPTCHA +
+  a browser click — it cannot be claimed from this VM (no live-browser /
+  captcha path available to the builder; the page is a JS shell, no public
+  claim API was found in its HTML).
 - **To unblock:** open https://hsk.xyz/faucet in a browser, paste
   `0xEAA2eA592514988305739c0bC6F2c56834615133`, solve the captcha, click
   "Send Me 1 HSK". Then re-run the deploy steps below.
