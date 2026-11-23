@@ -1,0 +1,3 @@
+{"ts":"2026-11-23T13:03:35.814Z","kind":"signal","signalId":1,"asset":"WHSK","chainId":133,"priceUsd":78.03853970565602,"z":0,"action":"HOLD","reason":"warming up: not enough samples","subgraphTvlUsd":"0","mode":"paper"}
+{"ts":"2026-11-23T13:03:53.707Z","kind":"signal","signalId":2,"asset":"WHSK","chainId":133,"priceUsd":78.03853970565602,"z":0,"action":"HOLD","reason":"warming up: not enough samples","subgraphTvlUsd":"0","mode":"paper"}
+{"ts":"2026-11-23T13:04:12.008Z","kind":"signal","signalId":3,"asset":"WHSK","chainId":133,"priceUsd":78.03853970565602,"z":0,"action":"HOLD","reason":"warming up: not enough samples","subgraphTvlUsd":"0","mode":"paper"}

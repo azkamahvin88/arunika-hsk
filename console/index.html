@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ARUNIKA — HSKSwap Trading Agent Console</title>
+<style>
+  :root { color-scheme: light dark; }
+  body { font-family: system-ui, -apple-system, sans-serif; max-width: 960px; margin: 0 auto; padding: 16px; }
+  h1 { font-size: 1.4rem; } h1 span { color: #e07b00; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .card { border: 1px solid #8884; border-radius: 12px; padding: 14px; }
+  .card h2 { margin: 0 0 8px; font-size: 1rem; }
+  #chat { height: 260px; overflow-y: auto; border: 1px solid #8884; border-radius: 8px; padding: 8px; margin-bottom: 8px; }
+  .msg { margin: 6px 0; } .msg b { display: block; font-size: .8rem; opacity: .7; }
+  .row { display: flex; gap: 8px; } input, select, button { padding: 8px; border-radius: 8px; border: 1px solid #8888; }
+  #q { flex: 1; }
+  label { display: block; margin: 8px 0 2px; font-size: .85rem; opacity: .85; }
+  input[type=number], select { width: 100%; box-sizing: border-box; }
+  pre { white-space: pre-wrap; word-break: break-word; font-size: .8rem; max-height: 220px; overflow-y: auto; }
+  .pill { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: .75rem; background: #8883; }
+</style>
+</head>
+<body>
+<h1>🌅 ARUNIKA <span>· autonomous trading agent on HSKSwap</span></h1>
+<p>Track 1 — AI Agent Trading · HSK Chain Horizon Hackathon Seoul · <span class="pill" id="net-pill">testnet 133</span></p>
+
+<div class="grid">
+  <div class="card">
+    <h2>💬 Ask the agent</h2>
+    <div id="chat"></div>
+    <div class="row">
+      <input id="q" placeholder='Try: positions? / pnl? / why did you buy? / status?' autocomplete="off">
+      <button id="ask">Ask</button>
+    </div>
+    <p style="font-size:.8rem;opacity:.75">Answers come from the live vault state (on-chain) + the agent's decision log. No keys in this page.</p>
+  </div>
+
+  <div class="card">
+    <h2>📊 Positions &amp; P&amp;L (live, on-chain)</h2>
+    <div id="positions">Loading…</div>
+    <h2 style="margin-top:16px">🎛️ Controls</h2>
+    <label>Position size per trade (USDT)</label>
+    <input id="ctl-size" type="number" min="0.1" step="0.1" value="1">
+    <label>Poll frequency (seconds)</label>
+    <input id="ctl-poll" type="number" min="10" step="5" value="30">
+    <label>Risk appetite</label>
+    <select id="ctl-risk">
+      <option value="low">Low — z ≥ 2.0, size ×0.5</option>
+      <option value="medium" selected>Medium — z ≥ 1.5</option>
+      <option value="high">High — z ≥ 1.0, size ×2</option>
+    </select>
+    <label>Target assets</label>
+    <select id="ctl-assets" multiple size="3">
+      <option value="WHSK" selected>WHSK / USDT</option>
+      <option value="WETH">WETH / USDT (mainnet only)</option>
+      <option value="WBTC">WBTC / USDT (mainnet only)</option>
+    </select>
+    <div class="row" style="margin-top:10px">
+      <button id="apply">Apply to agent</button>
+      <button id="refresh">↻ Refresh positions</button>
+    </div>
+    <p id="ctl-status" style="font-size:.8rem"></p>
+  </div>
+</div>
+
+<div class="card" style="margin-top:16px">
+  <h2>🧾 Decision log (latest first)</h2>
+  <pre id="log">Loading decisions.jsonl…</pre>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

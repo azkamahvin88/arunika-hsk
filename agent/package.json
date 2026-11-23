@@ -1,0 +1,1 @@
+{"dependencies":{"ethers":"^6.17.0"},"description":"ARUNIKA — autonomous trading agent on HSKSwap (HSK Chain)","license":"MIT","main":"index.js","name":"arunika-agent","scripts":{"start":"node index.js"},"version":"1.0.0"}

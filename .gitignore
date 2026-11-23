@@ -1,0 +1,14 @@
+# secrets — never commit keys
+*.key
+*.pem
+.env
+agent/config.json
+agent/decisions.jsonl
+# deps / build
+node_modules/
+agent/node_modules/
+out/
+cache/
+# local deploy notes with private material
+deployments.local.md
+.DS_Store
